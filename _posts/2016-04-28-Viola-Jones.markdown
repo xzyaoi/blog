@@ -3,7 +3,7 @@ layout:     post
 title:      "人脸检测的Viola-Jones方法"
 subtitle:   ""
 date:       2016-04-28 12:00:00
-author:     "Xz Yao"
+author:     "Xiaozhe Yao"
 header-img: "img/post-bg-facedetection.jpg"
 catalog: true
 tags:
@@ -17,8 +17,6 @@ tags:
 1. 人脸检测(Face Detection)。检测到人脸所在的区域。并进行一系列的矫正。
 
 2. 人脸校准(Face Alignment)。人脸校准指的是在图片中寻找到鼻子、眼睛、嘴巴之类的位置。
-![Face Detect & align](http://ww2.sinaimg.cn/mw690/6941baebjw1eqy1c70fhkj209o07daba.jpg)
-如图中，红色的框是在进行检测，白色的点是在进行校准。
 
 3. 信息识别(Info Recognition)。进行性别、年龄等信息的分析和识别。
 

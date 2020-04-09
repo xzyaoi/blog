@@ -1,9 +1,9 @@
 ---
 layout:     post
 title:      "Github上的有趣事实"
-subtitle:   " \"BigQuery驱动下的数据世界\""
+subtitle:   " \"Analyse Github with Big Query\""
 date:       2016-07-01 12:05:00
-author:     "Xz Yao"
+author:     "Xiaozhe Yao"
 header-img: "img/post-bg-big-query.jpg"
 catalog: true
 tags:
