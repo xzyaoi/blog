@@ -3,6 +3,7 @@ layout: post
 title: "Face Recognition in Production"
 subtitle: 'How it works in large-scale systems'
 author: "Xiaozhe Yao"
+mathjax: true
 header-style: text
 tags:
   - Face Recognition
