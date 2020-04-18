@@ -5,6 +5,7 @@ subtitle: 'How it works in large-scale systems'
 author: "Xiaozhe Yao"
 mathjax: true
 header-style: text
+catalog: true
 tags:
   - Face Recognition
   - Machine Learning
