@@ -45,8 +45,8 @@ Eigenfaces is a set of &quot;general faces&quot;. Theoretically, any face can be
 
 The process usually includes:
 
-- Collecting training dataset. Each image, as a matrix $(r \times c)$, will be re-shaped to a vector $1\times(r*c)$. Then all images can be seen as a $n\times (r*c)$ matrix $T$.
-- Then we calculate the average face vector and normalize every face in the database to be $face_i-avg_f$. Then we will have a new, normalized matrix. With this matrix, we can then compute the covariance matrix $S$, and then eigenvalues and eigenvectors of S. We will then have n eigenvectors (faces).
+- Collecting training dataset. Each image, as a matrix $(r \times c)$, will be re-shaped to a vector $1\times(r*c)$. Then all images can be seen as a $n \times (r*c)$ matrix $T$.
+- Then we calculate the average face vector and normalize every face in the database to be $face_i-avg_f$. Then we will have a new, normalized matrix. With this matrix, we can then compute the covariance matrix $S$, and then eigenvalues and eigenvectors of S. We will then have $n$ eigenvectors (faces).
 - We can then perform PCA (Principal Component Analysis) on the eigenvectors to find the primary component.
 - When a new face comes in, we convert it into a vector, project it into eigenface space, and we can then calculate the distance between the new face and the face space to check if it is a face (detection). If it is a face, we then calculate its weights, as in the example, it will be $(0.25,0.3,0.4)$. By comparing the weights with existing faces, we will be able to know if two faces belong to the same person, or which person does the face belong to.
 
