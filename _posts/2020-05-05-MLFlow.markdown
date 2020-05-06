@@ -1,0 +1,50 @@
+```yaml
+layout: post
+title: "MLFlow - Manage Machine Learning Lifecycle"
+subtitle: 'Accelerating the Machine Learning Lifecycle with MLFflow'
+author: "Xiaozhe Yao"
+mathjax: true
+header-img: "img/mlflow.jpg"
+catalog: true
+tags:
+    - Machine Learning
+    - Systems
+```
+
+> Abstract for the paper "Accelerating the Machine Learning Lifecycle with MLflow" by Matei Zaharia et al.
+
+## Challenges
+
+There are various new challenges that machine learning developers met, but not in traditional software development lifecycle. In more detail, the authors found four challenges that repeatedly arise amoung ML users, which are:
+
+* Multitude of tools. There are hundreds of tools to cover each phase of Machine learning development. In traditional software development, teams usually select one tool for each phase. However, machine learning developers usually want to try every available tool to check which one is better. 
+
+* Experiment Tracking. The authors claims that whether an individual is working along or on a team, it is difficult to track which parameters, code, and data went into each experiment to produce a model.
+
+* Reproducibility. Without detailed tracking, the teams often have problems getting the same code to work again. This is probably due to the various version and environment settings. 
+
+* Production Deployment. There is no standard way to move models from any library to the diverse environments. In addition, the model training pipeline also needs to be reliably converted to a scheduled job, and requires care to reproduce the software environments. It can be especially challenging because it often requires passing the machine learning application to a different team with less machine learning expertise.
+
+## MLFlow Overview
+
+The key philosophy for MLFlow is **Open**, that is, the system should define general interfaces for each abstraction. The authors take two example:
+
+* In MLflow, a model can be represented as a simple Python function so that any development tool that know how to run a Python function can run such a model.
+
+* MLflow exposes most of its features through REST APIs that can be called from any programming language.
+
+> These examples shows how third-parties can interact with MLflow. It would be better (and that's what AID is different) if MLflow could proactively send out information on how things are changing inside the lifecycle.
+
+There are three key components inside MLFlow:
+
+* MLflow Tracking. It can be used for recording experiment runs.
+
+* MLflow Projects. It is a simple format for packaging code into reusable projects. Each project defines its environment (software libraries used), the code to run and parameters.
+
+* MLflow Models. It is a generic format for packaging models that can work with diverse deployment tools.
+
+> The advantage of MLflow over AID is that these components are rather independent. In AID, components are highly-coupling and cannot be replaced easily.
+> 
+> Also in AID, the concept of "Package" is pretty similar to "Projects". It is more like a combination of projects and models.
+
+

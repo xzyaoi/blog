@@ -25,9 +25,11 @@ tags:
 # 人脸检测
 
 ## Viola-Jones方法
+
 传统的人脸检测算法是Viola-Jones算法。在OpenCV中的人脸检测功能也是使用的这种算法。它有三个核心步骤：Haar-like特征、Adaboost分类器和Cascade级联分类器。
 
 ### Haar-like特征
+
 所谓Haar-like特征其实很好理解。Haar-like特征类似于下图：
 
 ![](http://images.cnitblog.com/blog/466153/201310/23115756-851f494ea9994b6e90006949a2150c5f.jpg)
@@ -46,9 +48,11 @@ feature=sum(white)-sum(black)
 ### Adaboost方法
 
 有了特征，想要得到区分函数是非常容易的。常见的SVM方法和KNN方法都是可以做到的。但尽管本身的计算并不复杂，但Haar特征还是太多了。尤其现在图片分辨率动辄成千上万。从这些特征中选取合适的特征就非常重要。从工程中得到的实践结果是，我们可以通过结合很多个弱分类器从而组合成一个强分类器。这就是Adaboost方法。用数学的方式就可以表示为：
+
 ```
 F(x) =Σαf(x)
 ```
+
 其中F为强分类器，f为弱分类器。x是特征向量，α为权重。Adaboost是一种序列化的方式，需要经过很多步。举个例子来看。
 ![Adaboost example](https://ooo.0o0.ooo/2016/05/20/573f120f7e77d.png)
 
