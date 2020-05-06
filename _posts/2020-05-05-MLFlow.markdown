@@ -1,4 +1,4 @@
-```yaml
+---
 layout: post
 title: "MLFlow - Manage Machine Learning Lifecycle"
 subtitle: 'Accelerating the Machine Learning Lifecycle with MLFflow'
@@ -9,7 +9,7 @@ catalog: true
 tags:
     - Machine Learning
     - Systems
-```
+---
 
 > Abstract for the paper "Accelerating the Machine Learning Lifecycle with MLflow" by Matei Zaharia et al.
 
