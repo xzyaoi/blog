@@ -4,7 +4,7 @@ title: "MLFlow - Manage Machine Learning Lifecycle"
 subtitle: 'Accelerating the Machine Learning Lifecycle with MLFflow'
 author: "Xiaozhe Yao"
 mathjax: true
-header-img: "img/mlflow.jpg"
+header-style: text
 catalog: true
 tags:
     - Machine Learning
