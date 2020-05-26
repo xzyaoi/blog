@@ -23,7 +23,7 @@ One different thing is that we also try to analyse the sentiment in more detail,
 
 The visualization of the project is deployed at [Sentiment Analysis During COVID-19 Pandemic](https://covid19.yaonotes.org/).
 
-When I was reviewing the wordcloud of each day, I've seen lots of warm speech and that indeed encouraged me alot. For example, I've seen several most popular words are **Hope** and **Believe**, **Family** and **Friends**. I hope you will also be encouraged by the wordcloud, and see that people are becoming more positive as things are getting better.
+When I was reviewing the wordcloud of each day, I've seen lots of warm speech and that indeed encouraged me alot. For example, I've seen several most popular words, like **Hope** and **Believe**, **Family** and **Friends**. I hope you will also be encouraged by the wordcloud, and see that people are becoming more positive as things are getting better.
 
 If you'd like to contribute your part to tackling the global pandemic, please wear the mask, keep social distancing, and consider donating to [UZH Pandemic Fund](https://www.uzhfoundation.ch/de/pandemiefonds).
 
