@@ -27,6 +27,6 @@ Some people may though this project unethical, and people should have the freedo
 
 When I was reviewing the wordcloud of each day, I've seen lots of warm speech and that indeed encouraged me alot. For example, I've seen several most popular words, like **Hope** and **Believe**, **Family** and **Friends**. I hope you will also be encouraged by the wordcloud, and see that people are becoming more positive as things are getting better.
 
-If you'd like to contribute your part to tackling the global pandemic, please wear the mask, keep social distancing, and consider donating to [UZH Pandemic Fund](https://www.uzhfoundation.ch/de/pandemiefonds).
+If you'd like to contribute your part in tackling the global pandemic, please wear the mask, keep social distancing, and consider donating to [UZH Pandemic Fund](https://www.uzhfoundation.ch/de/pandemiefonds).
 
 Stay Safe.
