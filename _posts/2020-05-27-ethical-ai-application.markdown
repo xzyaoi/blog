@@ -19,3 +19,7 @@ Note that for me it is really hard to say that something is ethical, so I will t
 For example, some algorithms themselves has a tendency towards a specific group, such as colored people, people with a religion, LGBTQ, etc. Usually, people are not aware of this before they actually apply the algorithm. Then the algorithm will show its preferences in unnecessary situations.
 
 * Misleading.
+
+* Systems without human intervention.
+
+Some people believe that the machine learning models is more neutral than human being, and developers should avoid interventing its process. Unfortunately, I do not think it is true as the input data might biased. Even some big companies and top-tier research institutes are producing "bad" models. 
