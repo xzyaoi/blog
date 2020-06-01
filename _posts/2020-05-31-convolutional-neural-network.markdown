@@ -68,10 +68,9 @@ After the fully connected layers, we will have $n$ nodes where n equals the numb
 ## Softmax Layer
 
 At the end of our neural networks, we want our output to be a probability dis- tribution. Thus we apply softmax function to each node. The softmax function is defined as:
-$$\delta(z_i)=\frac{e^{z_i}}{\sum_{j=1}{n}e^{z_j}}$$ where n represents the number of categories.
+$$\delta(z_i)=\frac{e^{z_i}}{\sum_{j=1}^{n}e^{z_j}}$$ where $n$ represents the number of categories.
 
-At the end of the whole neural network, we get a list of probabilities of each
-category. As we see in the above process, to perform the image classification, the convolution layer and fully connected layers require some parameters to compute the output. These parameters will be computed in the model training process by using gradient descent approach. After the training process, these parameters will be saved to a weight file. When performing inference, we just load the parameters from the file into memory, and compute the output of the neural networks.
+At the end of the whole neural network, we get a list of probabilities of each category. As we see in the above process, to perform the image classification, the convolution layer and fully connected layers require some parameters to compute the output. These parameters will be computed in the model training process by using gradient descent approach. After the training process, these parameters will be saved to a weight file. When performing inference, we just load the parameters from the file into memory, and compute the output of the neural networks.
 
 # VGG Net
 
