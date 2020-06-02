@@ -2,8 +2,8 @@
 layout: post
 title: "Analysing Sentiment Changes during the COVID-19 Pandemic"
 author: "Xiaozhe Yao"
-mathjax: true
-header-style: text
+mathjax: false
+header-img: "img/posts/solidarity.jpg"
 catalog: true
 tags:
     - Machine Learning
