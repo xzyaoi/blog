@@ -1,6 +1,7 @@
-My name is Xiaozhe Yao. I received my B.Eng at Dept. of Computer Science and Software Engineering, Shenzhen University. My research interests include Machine Vision, Neural Science, and Automated Machine Learning.
+我是姚晓哲，毕业于深圳大学计算机与软件学院。我的个人兴趣包括计算机视觉/深度学习/推理引擎。
 
-I am now serving as technical chair at AICAMP.CO.,LTD, a Hong Kong Cyberport Incubatee Company. It is the umbrella company for our open source softwares.
+从2016年到2017年，我在中国科学院深圳先进技术研究院实习，我的工作主要是基于食物的营养数据进行推荐。这些成果最终产业化成为了一家创业公司（但很遗憾，目前这家公司已经放弃了这个业务）。我依然觉得这是一件很有趣和很有意义的事。
 
-Prior to joining AICAMP, I was the co-founder of Zhitan Technology in Shenzhen, and lead the backend department. Before that, I joined Shenzhen Institute of Advanced Research, Chinese Academy of Science as a Data Scientist (Intern). At SIAT, I developed a food recognition and recommendation algorithm and devoted it to Zhitan Technology.
+在那之后，我开始研究如何让深度学习跑得更快，更方便这一话题。
 
+本网站内的全部内容，包括Yaonotes的[首页](https://yaonotes.org)上的内容，均可以免费传播。但请注明出处（万一有错误，别人可以联系到我指出）。
