@@ -22,4 +22,6 @@ For example, some algorithms themselves has a tendency towards a specific group,
 
 * Systems without human intervention.
 
-Some people believe that the machine learning models is more neutral than human being, and developers should avoid interventing its process. Unfortunately, I do not think it is true as the input data might biased. Even some big companies and top-tier research institutes are producing "bad" models. 
+Some people believe that the machine learning models is more neutral than human being, and developers should avoid interventing its process. Unfortunately, I do not think it is true as the input data might biased. Even some big companies and top-tier research institutes are producing "bad" models, for example, when Google are using machine learning to identify malware on Chrome Webstore, they accidentally remove some from their list. Without human intervention, the developers of those chrome extensions will not be able to restore their extension on Chrome Webstore.
+
+It may reduce cost for companies to adopt machine learning as part of their customer service, but please make sure that there are always real human available to handle outliers.

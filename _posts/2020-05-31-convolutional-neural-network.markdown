@@ -61,9 +61,9 @@ Fully connected layers in convolutional neural networks are the same with regu- 
 
 In each layer, we perform the computation as $f(X) = g(w^TX + b)$, where $w$ (for weight) and $b$ (for bias) are parameters that we learned during the model training and g is an activation function. If we assume that layer $i$ requires a $p_i \times 1$ vector as input, and its output is $q_i$, then the weight will be a $p_i \times q_i$ matrix and the bias will be a $q_i \times 1$ vector. The weight and bias will be learned during the training process.
 
-After computing the $w^TX + b$, we usually apply an activation function on the result. The purpose of such functions is to add some non-linearity to the neural networks. As we see above, all operations we have are linear. Images in real life are usually not linear, and thus it cannot be approximated by such a linear system. To tackle the problems, we add some non-linear functions at the end of each fully connected layer. The most successful one is ReLU(Rectified Linear Unit) function, which basically equals to $g(x) = max\{0, x\}$.
+After computing the $w^TX + b$, we usually apply an activation function on the result. The purpose of such functions is to add some non-linearity to the neural networks. As we see above, all operations we have are linear. Images in real life are usually not linear, and thus it cannot be approximated by such a linear system. To tackle the problems, we add some non-linear functions at the end of each fully connected layer. The most successful one is ReLU(Rectified Linear Unit) function, which basically equals to $g(x) = max(0, x)$.
 
-After the fully connected layers, we will have $n$ nodes where n equals the number of categories. Each of them is a non-negative value.
+After the fully connected layers, we will have $n$ nodes where $n$ equals the number of categories. Each of them is a non-negative value.
 
 ## Softmax Layer
 
