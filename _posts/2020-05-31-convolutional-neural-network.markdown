@@ -3,7 +3,7 @@ layout: post
 title: "Convolutional Neural Networks"
 author: "Xiaozhe Yao"
 mathjax: true
-header-style: text
+header-img: "img/posts/cnn.jpg"
 catalog: true
 tags:
     - Machine Learning
