@@ -17,4 +17,4 @@ There are many issues we've faced in our process of deploying computer vision mo
 * When we want to distribute our code to customers, but they do not like http calls to our server as they do not want to share the data with us.
 * and more!
 
-To tackle these problems, we proposed A.I.D, which helps us manage, share
+To tackle these problems, we proposed A.I.D, which helps us manage, share and deploy deep learning models to production.

@@ -11,6 +11,8 @@ tags:
     - Natural Language Processing
 ---
 
+![ChessUrl](https://raw.githubusercontent.com/xzyaoi/covid-sentiment/master/ezgif.com-gif-maker.gif "full-visualizer")
+
 > United we stand, Divided we fall.
 
 Since last December, the coronavirus has been spreaded across the globe. Besides of the physical harm to more than 5 million innocent people, there comes a lot of harmful speech that hurts people mentally. 
@@ -25,7 +27,9 @@ The visualization of the project is deployed at [Sentiment Analysis During COVID
 
 Some people may though this project unethical, and people should have the freedom of feeling bad. That is correct and I absolutely agree. The purpose of this project is not to let everyone be positive about whatever happened, but to let whoever in charge know that some certain things will make people unhappy. Besides of the claim of purpose, we also delete several features, such as group people by their country or language. We found it might probably lead to argument between two races about their emotion change, such as criticizing a specific group for not being positive. Thus in the end, we hope that, our human being, as a whole, can show whether we are happy or not about an event or so. Again, the project is not for criticizing anyone, but to encourage someone.
 
-When I was reviewing the wordcloud of each day, I've seen lots of warm speech and that indeed encouraged me alot. For example, I've seen several most popular words, like **Hope** and **Believe**, **Family** and **Friends**. I hope you will also be encouraged by the wordcloud, and see that people are becoming more positive as things are getting better.
+When I was reviewing the wordcloud of each day, I've seen lots of warm speech and that indeed encouraged me alot. For example, I've seen several most popular words, like **Hope** and **Believe**, **Family** and **Friends**. From the insultation detector, I also found that there's only very few insult tweets over all the dataset (around 0.4%), which encouraged me a bit also. I hope you will also be encouraged by the wordcloud, and see that people are becoming more positive as things are getting better.
+
+For more technical details, we've made the code publicly accessible at [Google Colab](https://colab.research.google.com/drive/1LDNP4K264jQVh3YTEFF5dPzqpuU83kkb?usp=sharing).
 
 If you'd like to contribute your part in tackling the global pandemic, please wear the mask, keep social distancing, and consider donating to [UZH Pandemic Fund](https://www.uzhfoundation.ch/de/pandemiefonds).
 
