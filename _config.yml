@@ -71,10 +71,8 @@ netease_comment: false
 # ba_track_id: [your track id]
 
 # Google Analytics
-# ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-# ga_domain: yaonotes.org
-
-
+ga_track_id: 'UA-168773217-1'            # Format: UA-xxxxxx-xx
+ga_domain: yaonotes.org
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.

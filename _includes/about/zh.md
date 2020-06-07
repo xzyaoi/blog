@@ -4,4 +4,4 @@
 
 在那之后，我开始研究如何让深度学习跑得更快，更方便这一话题。
 
-本网站内的全部内容，包括Yaonotes的[首页](https://yaonotes.org)上的内容，均可以免费传播。但请注明出处（万一有错误，别人可以联系到我指出）。
+本网站内的全部内容，包括Yaonotes的[首页](https://yaonotes.org)上的内容，均可以免费传播。但请注明出处（万一有错误，别人可以联系到我指出）。你可以在[这里](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)找到更多的解释。
