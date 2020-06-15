@@ -1,4 +1,4 @@
-My name is Xiaozhe Yao. I received my B.Eng at Dept. of Computer Science and Software Engineering, Shenzhen University. My research interests include Machine Vision, Neural Science, and Automated Machine Learning.
+My name is Xiaozhe Yao. I received my B.Eng at Dept. of Computer Science and Software Engineering, Shenzhen University. I am particularly interested in the theory and application of machine learning, especially the **A**utomated, **I**nterpretable and **R**eliable machine learning. I am also trying to use the techniques in machine learning and data science to identify and handle social problems, such as the diversity in software industry, the emotion changes during a period of time, etc.
 
 I am now serving as technical chair at AICAMP.CO.,LTD, a Hong Kong Cyberport Incubatee Company. It is the umbrella company for our open source softwares.
 
