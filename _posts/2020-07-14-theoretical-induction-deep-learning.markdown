@@ -20,10 +20,8 @@ symbols:
 -   $y_i$: the output of the $i$-th layer. On the contrary, if there is
     corresponding ground truth label, it is notated as $\hat{y}_i$.
 
--   $l$: the value of loss function. It can be defined as
-    $l=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$ (Mean square error),
-    $l=-\sum_{i}^n\hat{y_i}log(y_i)$ (cross entropy loss) or any other
-    form.
+-   $l$: the value of loss function. It can be mean square error, cross entropy
+    loss or any other form.
 
 There are two fundamental observations in back propagation:
 
@@ -112,7 +110,8 @@ derivative we need to compute, we will only need to compute
 $\frac{\partial l}{\partial y_i}$. Let $g(y_i)=y_i-\hat{y_i}$, then
 $\frac{\partial g}{\partial y_i}=1$.
 
-$$\frac{\partial l}{\partial y_i}=\frac{\partial l}{\partial g}\times \frac{\partial g}{{\partial y_i}}=\frac{2}{n}(y_i-\hat{y_i})$$
+$$\frac{\partial l}{\partial y_i} = \frac{\partial l}{\partial g}\times
+\frac{\partial g}{{\partial y_i}} = \frac{2}{n}(y_i-\hat{y_i})$$
 
 ## Cross Entropy Loss
 
@@ -130,13 +129,15 @@ Then as we know there will be a $k=i$ such that
 $\frac{p(y_k)}{\partial y_i}=p(y_j)(1-p(y_j))$, and for other $k\neq i$,
 we have $\frac{p(y_k)}{\partial y_i}=-p(y_j)p(y_i)$.
 
-Then we have: $$\begin{array}{l}
-$$-\sum_j \hat{y_j} \frac{1}{p(y_j)}\frac{\partial p(y_j)}{\partial y_i} \\ 
+Then we have: 
+
+$$\begin{array}{l}
+-\sum_j \hat{y_j} \frac{1}{p(y_j)}\frac{\partial p(y_j)}{\partial y_i} \\ 
 = (-y_i)(1-p(y_i))-\sum_{j\neq i} \hat{y_j} \frac{1}{p(y_j)}p(y_j)p(y_i) \\
 = -y_i + p(y_i)y_i + \sum_{j\neq i}y_jp(y_i) \\ 
 = -y_i + p(y_i)\sum_{j\neq i} y_j \\ 
 = -y_i + p(y_i)\sum_{j}p(y_j) \\
-= p(y_i) - y_i $$
+= p(y_i) - y_i
 \end{array}$$
 
 The form is very elegant, and easy to compute. Therefore we usually hide
