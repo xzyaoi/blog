@@ -1,145 +1,39 @@
 ---
 layout: post
 title: "Implement a Deep Learning Framework in Pure Python"
-subtitle: 'I: Theoretical Induction.'
+subtitle: 'I: Theoretical Foundation.'
 author: "Xiaozhe Yao"
 mathjax: true
 header-img: "img/posts/cnn.jpg"
 tags:
     - Machine Learning
 ---
+# 理论基础
 
-In the following induction, we will by default define the following
-symbols:
+本节将包括对卷积神经网络、梯度下降法、反向传播的初步介绍。同时我们也将会详细的推导我们本节最重要的结论：矩阵线性变换的导数。由于本文最初是英文写成，可能会有一些翻译腔，请谅解。
 
--   $w_i$ and $b_i$: the weight and bias of the $i$-th layer in a neural
-    network.
+**卷积神经网络** 卷积神经网络是被广泛使用的一类神经网络。在一个卷积神经网络中，通常存在卷积层（Convolution Layer），池化层（Pooling Layer）和全连接层（Fully Connected Layer）。前两者用于提取图像的特征，全连接层用于实现一个分类器。同时，卷积层和全连接层含有需要学习的权重（weight）。这个权重会在训练过程中不断被更新，从而实现提取特征和分类的效果。
 
--   $x_i$: the input to the $i$-th layer in a neural network.
+**梯度下降法** 在训练一个神经网络的过程中，我们实际上是希望寻找到一个对我们的输入的映射 $F(x)$，使得它与真实值之间的差异最小，即 $y-F(x)$ 最小。尽管我们知道寻找一个函数的最小值可以通过求解其导数，然后使得导数等于 $0$ 来实现，这种方法也不太适用于我们的神经网络中，因为神经网络往往会成为一个非线性、非凸的函数，我们很难直接求导出它的导数并让导数等于$0$。在实际中，我们主要是通过梯度下降法来实现求解其极小值。我们假设使用 $f(x)=y-F(x)$ 来衡量预测值 $F(x)$ 和真实值 $y$ 之间的差异，之后首先随机初始化 $F(x)$（假设此时 $F$ 中的参数为 $a$），计算其函数值相对于参数 $a$ 的梯度 $\nabla_a f$。由于梯度是函数上升的最快方向，我们可以用我们的初始参数减去梯度，即 $a^{new}=a-\nabla_a f$ 来得到一个新的参数。之后我们可以重复这个过程，直到这个差异 $f$ 达到一个我们满意的较小值。在实践中，我们还会在这个梯度前面乘以一个常数 $\lambda$，用于表示梯度的下降速度。这个常数就被称作是 **学习率 （Learning Rate）**。
 
--   $y_i$: the output of the $i$-th layer. On the contrary, if there is
-    corresponding ground truth label, it is notated as $\hat{y}_i$.
+**反向传播** 根据上文提到的梯度下降法的原理，我们需要求解损失函数相对于神经网络中每一层的参数 $w_i$ 的导数，即 $\frac{\partial l}{\partial w_i}$ 或 $\nabla_{w_i}l$。我们通过反向传播来逐层求解。对于一个神经网络来说，我们至少有下列几个已知的结论：
 
--   $l$: the value of loss function. It can be mean square error, cross entropy
-    loss or any other form.
+* 第 $i$ 层的输出是第 $i+1$ 层的输入，即 $y_i=x_{i+1}$，或者说 $x_{i}=y_{i-1}$。根据这个结论，我们会有 $\frac{\partial l}{\partial y_{i-1}}=\frac{\partial l}{\partial x_i}$。
+* 我们在每一层中，除了求得损失函数相对于参数 $w$ 的导数外，还可以求得相对于其输入的导数。也就是说，$\frac{\partial l}{\partial x_i}$ 是已知的。
+* 根据链式法则，我们会有 $\frac{\partial l}{\partial w_i}=\frac{\partial l}{\partial y_i}\frac{\partial y_i}{\partial w_i}$
 
-There are two fundamental observations in back propagation:
+根据以上两个结论，我们只要把 $\frac{\partial l}{\partial x_i}$ 传递给上一层，之后上一层就可以利用收到的这个梯度，根据链式法则计算这一层中的 $\frac{\partial l}{\partial w_i}$。这就是反向传播的大致思路：我们把每一层中，损失函数相对于输入的梯度传递给上一层，之后逐层就可以计算损失函数相对于参数的导数，此时再使用梯度下降法来更新参数，就可以得到新的参数。
 
--   In the $i$-th layer, we always know the gradient of the loss with
-    respects to the output of $i$-th layer. That means, in $i$-th layer,
-    $\frac{\partial l}{\partial y_i}$ is given.
+**线性变换的求导** 为了精简，这个小标题是不够确切的。确切来说，我们想要首先解决这样一个问题：
 
--   Since we know that the output of $(i-1)$-th layer is the input of
-    $i$-th layer, when performing backward pass, we have
-    $\frac{\partial{l}}{\partial{x_i}}=\frac{\partial{l}}{\partial{y_{i-1}}}$.
+已知两个函数，$f(Y): \mathbb{R}^{m\times n}\to\mathbb{R}$，即我们不知道该函数的解析式，只知道它把一个 $m\times n$ 的实矩阵变换为一个实数。$g(X): \mathbb{R}^{p\times n}\to\mathbb{R}^{m\times n}, Y=g(X)=AX+B$，其中 $A\in\mathbb{R}^{m\times p}, B\in\mathbb{R}^{m\times n}$。也就是说 $g(X)$ 把一个 $m\times p$ 的实矩阵通过线性变换 $AX+B$ 变换为一个 $m\times n$ 的矩阵。我们现在需要求解 $f$ 相对于 $X$ 的导数 $\frac{\partial f}{\partial X}$。
 
-## Fully Connected Layers
+在正式求解之前，我们先大致思考一下这个问题对我们的重要性：在这里的 $f(Y)$ 负责把我们的矩阵变换为一个实数，这基本上就是我们损失函数的特征。而 $g(X)$ 则是矩阵的相乘，可以视作是神经网络中间层的变换。例如，全连接层就可以被视作是一个矩阵的相乘。实际上，卷积层也可以通过矩阵相乘来实现（下一节会提供例子说明）。因此，解决了这个问题，我们就可以轻松地把这个结论应用在每一层，避免重复劳动。熟悉矩阵求导的同学可以跳过以下的说明，对具体推导不感兴趣的同学也可以跳过以下证明，直达最后一点的结论。
 
-In forward pass, the output of fully connected layers is simple:
-$y_i=w_i \times x_i + b_i$.
-
-Then in order to know how $w$ changes will affect the loss, we need to
-calculate $\frac{\partial{l}}{\partial{w_i}}$. By using the chain rule,
-we have
-$\frac{\partial{l}}{\partial{w_i}}=\frac{\partial{l}}{y_i}\frac{\partial{y_i}}{\partial{w_i}}=\frac{\partial{l}}{y_i}x_i$,
-and
-$\frac{\partial{l}}{\partial{b_i}}=\frac{\partial{l}}{y_i}\frac{\partial{y_i}}{\partial{b_i}}=\frac{\partial{l}}{y_i}$.
-We can then successfully update our weight and bias in this layer.
-
-After updating the weight and bias in $i$-th layer, we also need to pass
-the gradient of loss with respect to the input to the previous layer. So
-we need to compute the gradient that the $i$-th layer passed to previous
-layer by
-$\frac{\partial{l}}{\partial{x_i}}=\frac{\partial{l}}{\partial{y_i}}\frac{\partial{y_i}}{\partial{x_i}}=\frac{\partial{l}}{\partial{y_i}}w_i$.
-
-## ReLu
-
-The purpose of using activation functions is to bring some non-linearity
-into the deep neural networks, so that the networks can fit the real
-world. One of the most popular activation function is the **re**ctifier
-**l**inear **u**nit (ReLu).
-
-The function is defined as $f(x)=max(0,x)$. Thus the forward pass is
-simple: $y_i=max(0, x_i)$.
-
-In the ReLu function, we do not have any weight or bias to update. Hence
-we only need to compute the gradient to previous layer. We have
-$\frac{\partial{l}}{\partial{x_i}}=\frac{\partial{l}}{\partial{y_i}}\frac{\partial{y_i}}{\partial{x_i}}$.
-Then we have:
-
-$$\frac{\partial{l}}{\partial{x_i}}=
-  \begin{cases}
-    $0$ & \text{$x_i<0$}  \\
-    \frac{\partial{l}}{\partial{y_i}} & \text{$x_i>0$} \\
-    undefined & \text{$x_i=0$}
-  \end{cases}$$
-
-We see that the derivative is not defined at the point $x_i=0$, but when
-computing, we can set it to be $0$, or $1$, or any other values between.
-
-## Softmax
-
-Softmax is such a function that takes the output of the fully connected
-layers, and turn them into the probability. Formally, it takes an $n$-d
-vector, and normalizes it to $n$ probabilities proportional to the
-exponentials of the input number. It is defined as
-$$f(x)=\frac{e^{x_i}}{\sum e^{x_j}}$$, where $x_i$ is the $i$-th input
-number.
-
-We can then compute the derivative by using the quotient rule (if
-$f(x)=\frac{g(x)}{h(x)}$, then
-$f'(x)=\frac{g'(x)h(x)-g(x)h(x)}{h^2(x)}$). In our case, we have
-$g_i=e^{x_i}$ and $h_i=\sum e^{x_j}$. Then we have
-$\frac{\partial g_i}{x_j}=e^{x_i} \: (i=j)$ or $0 \: (i\neq j)$. For
-$h_i$, no matter the relation between $i$ and $j$, the derivative will
-always be $e^{x_i}$.
-
-Thus we have:
-
-When $i=j$,
-$$\frac{\partial f}{\partial x_i}=\frac{e^{x_i}\sum e^{x_j}-e^{x_i}e^{x_j}}{(\sum e^{x_j})^2}=\frac{e^{x_i}}{\sum{e^{x_j}}}\times \frac{(\sum e^{x_i} - e^{x_i})}{\sum{e^{x_j}}} = f(x_i)(1-f(x_i))$$
-
-When $i\neq j$,
-$$\frac{\partial f}{\partial x_i}=\frac{0-e^{x_i}e^{x_j}}{(\sum e^{x_j})^2}=-\frac{e^{x_i}}{\sum e^{x_j}}\times \frac{e^{x_j}}{\sum e^{x_j}}=-f(x_i)f(x_j)$$
-
-## Mean Square Loss
-
-The mean square error is defined as
-$l = \frac{1}{n}\sum (y_i-\hat{y}^i)^2$. Since this is the last
-derivative we need to compute, we will only need to compute
-$\frac{\partial l}{\partial y_i}$. Let $g(y_i)=y_i-\hat{y_i}$, then
-$\frac{\partial g}{\partial y_i}=1$.
-
-$$\frac{\partial l}{\partial y_i} = \frac{\partial l}{\partial g}\times
-\frac{\partial g}{{\partial y_i}} = \frac{2}{n}(y_i-\hat{y_i})$$
-
-## Cross Entropy Loss
-
-The cross-entropy loss is defined as $l=-\sum_i^n \hat{y_i}log(p(y_i))$
-where $p(y_i)$ is the probability of the output number, i.e. we usually
-use cross-entropy loss after a softmax layer. By this nature, we could
-actually compute the derivative of cross-entropy loss with respect to
-the original output $y_i$ rather than $p(y_i)$.
-
-Then we have:
-
-$$\frac{\partial l}{\partial y_i}=- \sum_j \hat{y_j} \frac{\partial log(p(y_j))}{\partial y_i} = -\sum_j \hat{y_j} \frac{1}{p(y_j)}\frac{\partial p(y_j)}{\partial y_i}$$
-
-Then as we know there will be a $k=i$ such that
-$\frac{p(y_k)}{\partial y_i}=p(y_j)(1-p(y_j))$, and for other $k\neq i$,
-we have $\frac{p(y_k)}{\partial y_i}=-p(y_j)p(y_i)$.
-
-Then we have: 
-
-$$\begin{array}{l}
--\sum_j \hat{y_j} \frac{1}{p(y_j)}\frac{\partial p(y_j)}{\partial y_i} \\ 
-= (-y_i)(1-p(y_i))-\sum_{j\neq i} \hat{y_j} \frac{1}{p(y_j)}p(y_j)p(y_i) \\
-= -y_i + p(y_i)y_i + \sum_{j\neq i}y_jp(y_i) \\ 
-= -y_i + p(y_i)\sum_{j\neq i} y_j \\ 
-= -y_i + p(y_i)\sum_{j}p(y_j) \\
-= p(y_i) - y_i
-\end{array}$$
-
-The form is very elegant, and easy to compute. Therefore we usually hide
-the computational process of the derivative of softmax in the
-computation of cross entropy loss.
+* 在 $x$点，假设我们有两个中间变量 $u=\phi(x)$ 和 $v=\psi(x)$。这两个变量均有相对于 $x$ 的导数定义，即 $\frac{\partial u}{\partial x}$，$\frac{\partial v}{\partial x}$ 均存在。另外还有一个函数 $f(u,v)$ 是由 $u, v$ 共同定义的。此时如果我们想要求解 $\frac{\partial y}{\partial x}$，即需要同时考虑这两个中间变量。我们有 $\frac{\partial y}{\partial x}=\frac{\partial y}{\partial u}\frac{\partial u}{\partial x}+\frac{\partial y}{\partial v}\frac{\partial v}{\partial x}$。在这个矩阵的问题中，如果我们打算求解实值函数 $f$ 相对于 $x_{ij}$ 的导数，即$\frac{\partial f}{\partial x_{ij}}$，我们的中间矩阵 $Y$ 中就有可能有很多个这样的中间变量 $y_{kl}$，因此我们有 $\frac{\partial f}{\partial x_{ij}}=\sum_{kl}\frac{\partial f}{\partial y_{kl}}\frac{\partial y_{kl}}{\partial x_{ij}}$。
+* 我们用 $a_{ij}$ 和 $b_{ij}$ 来表示 $A$ 和 $B$ 中的元素，那么我们不难得到 $y_{kl}=\sum_{s}a_{ks}x_{sl}+b_{kl}$，因此我们就有 $\frac{\partial y_{kl}}{\partial x_{ij}}=\frac{\partial \sum_{s}a_{ks}x_{sl}}{\partial x_{ij}}=\frac{\partial a_{ki}x_{il}}{\partial x_{ij}}$。此时我们发现，只有当 $l=j$时，这个导数的值才不为 $0$。我们用一个特殊记号 $\delta_{lj}$ 来表示：若$l=j$，则$\delta_{lj}=1$，否则 $\delta_{lj}=0$。（这个记号也叫做 [Kronecker Delta](https://en.wikipedia.org/wiki/Kronecker_delta)）那么我们求出的结果就可以写作：$\frac{\partial y_{kl}}{\partial x_{ij}}=\frac{\partial a_{ki}x_{il}}{\partial x_{ij}}\delta_{lj}=a_{ki}\delta_{lj}$。
+* 把第二个结果带入第一点，我们可以得到 $\frac{\partial f}{\partial x_{ij}}=\sum_{kl}\frac{\partial f}{\partial y_{kl}}\frac{\partial y_{kl}}{\partial x_{ij}}=\sum_{kl}\frac{\partial f}{\partial y_{kl}}a_{ki}\delta_{lj}$。这个时候，我们发现，只有 $y_{kj}$ 被留下来，其他的都会是 $0$，所以我们可以继续简化得到 $\frac{\partial f}{\partial x_{ij}}=\sum_{kl}\frac{\partial f}{\partial y_{kl}}a_{ki}\delta_{lj}=\sum_{k}\frac{\partial f}{\partial y_{kj}}a_{ki}$。在这个式子中，我们知道 $a_{ki}$ 是位于矩阵 $A$ 的第 $i$ 列，或者说 $A^T$的第 $i$ 行。同时，$\frac{\partial f}{\partial y_{kj}}$ 是位于矩阵$\frac{\partial f}{\partial Y}$的第 $j$ 列。此时，我们会发现，这是一个矩阵相乘的操作，也就是说 $\frac{\partial f}{\partial X}=A^T\frac{\partial f}{\partial Y}=A^T\nabla_Y f$。
+* 类似地，我们也可以推导出右乘的情形，即 $Y=g(X)=XC+D$。我们有 $Y^T=(XC+D)^T=C^TX^T+D^T$。之后利用上面得到的结论，就会有 $\nabla_{X^T}f=(C^T)^T\nabla_{Y^T}f=C\nabla_{Y^T}f$。因此，$\nabla_{X}f=(\nabla_{X^T}f)^T=(C\nabla_{Y^T}f)^T=(\nabla_{Y}f)C^T$。
+* 总结，我们可以得到两个结论：
+    * 若$g(X)=AX+B$（左乘），则 $\frac{\partial f}{\partial X}=A^T\nabla_Y f$。
+    * 若$g(X)=XA+B$（右乘），则 $\frac{\partial f}{\partial X}=(\nabla_Y f)A^T$
