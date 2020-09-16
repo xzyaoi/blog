@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Implement a Deep Learning Framework in Pure Python"
-subtitle: 'I: Theoretical Foundation.'
+subtitle: 'I: Preliminaries.'
 author: "Xiaozhe Yao"
 mathjax: true
 header-img: "img/posts/cnn.jpg"
 tags:
     - Machine Learning
 ---
-# 理论基础
+# 预备知识
 
 本节将包括对卷积神经网络、梯度下降法、反向传播的初步介绍。同时我们也将会详细的推导我们本节最重要的结论：矩阵线性变换的导数。由于本文最初是英文写成，可能会有一些翻译腔，请谅解。
 
