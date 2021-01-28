@@ -3,6 +3,7 @@ layout: post
 title: "相机标定法"
 subtitle: '真实世界中的物体是如何变换到相机图片的'
 author: "Xiaozhe Yao"
+mathjax: true
 header-style: text
 tags:
   - Machine Vision
