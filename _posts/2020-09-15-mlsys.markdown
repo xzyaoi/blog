@@ -9,9 +9,9 @@ tags:
   - Systems
 ---
 
-In the past several months, I have seen several talks, papers and discussions about the machine learning systems. The term "Machine Learning Systems" is too big to be discussed in a short blog post, and therefore in this post, I will try to focus on a single topic: **Why it is important to have a system that supports publish, discover, deploy and monitor machine learning**.
+In the past several months, I have seen several talks, papers and discussions about the machine learning systems. The term "Machine Learning Systems" is too big to be discussed in a short blog post, therefore in this post, I will try to focus on a single topic: **Why it is important to have a system that supports publish, discover, deploy and monitor machine learning**.
 
-**Does SOTA Reflect Real World?.** Currently, most hypotheses about how to improve deep learning models are based on empirical experiments. These experiments are conducted on top of several well-established dataset, imagenet for example. However, it is still a question that **even though the SOTA models are working well on these dataset, does it really works on the real scenario?**. Some models have been tested on rather large dataset, and we could probably assume it works on general image data. For example, a model trained on imagenet will probably works well on some new data that have similar distributions with imagenet. However, the scenario in real life might be different: for example the different light intensity in images, some blur or missing parts of the image, some broken sentences, etc. Most deep learning models have not been tested under real world scenario after they were published.
+**Does SOTA Reflect Real World?** Currently, most hypotheses about how to improve deep learning models are based on empirical experiments. These experiments are conducted on top of several well-established dataset, imagenet for example. However, it is still a question that **even though the SOTA models are working well on these dataset, does it really works on the real scenario?**. Some models have been tested on rather large dataset, and we could probably assume it works on general image data. For example, a model trained on imagenet will probably works well on some new data that have similar distributions with imagenet. However, the scenario in real life might be different: for example the different light intensity in images, some blur or missing parts of the image, some broken sentences, etc. Most deep learning models have not been tested under real world scenario after they were published.
 
 ![ice-dataset.png](https://i.loli.net/2020/09/17/W9ZHMNvbnS4rJXO.png)
 
@@ -28,3 +28,4 @@ Large companies could afford to hire some "deep learning engineers" to focus on 
 In the last part, I want to describe how we think about AID and why it could be different from other systems.
 
 There are already some systems that support deployments of machine learning models. However, they can hardly say that they are a full lifecycle manager for machine learning. For example, how can they be used to interpret the models? How can they be used to compress and deploy the models into mobiles? How users could provide feedbacks to the models? These questions still need to be solved by developers, but are there anything in common that can be solved in a clean, decent, and unified way?
+
