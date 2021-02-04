@@ -4,6 +4,7 @@ title: "团队的多样性会影响工作效率吗？"
 subtitle: '以软件开发团队为例'
 author: "Xiaozhe Yao"
 header-style: text
+header-img: "img/posts/mlk.jpg"
 catalog: true
 tags:
   - Others
