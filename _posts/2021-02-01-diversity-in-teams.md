@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "团队的多样性会影响工作效率吗？"
+title: "让平等不止于口号"
 subtitle: '以软件开发团队为例'
 author: "Xiaozhe Yao"
 header-img: "img/posts/mlk.jpg"
@@ -26,7 +26,7 @@ tags:
 
 这种潜意识里的歧视要比明面上的歧视更难避免：人们并不会告诉你，不招聘你的原因仅仅是因为有一个男性候选者，而他不会要求产假。也不会告诉你不招聘你的原因是有一位白人候选者：这种潜意识的歧视已经深深扎根在脑海里，让人们认为只要招聘女性或是少数群体便一定带来负面作用。人们把它放在脑海里，表面上不去触碰它，实则在不断加强这种固有印象。
 
-这种潜意识的歧视甚至已经出现在了计算机算法中。例如亚马逊公司的招聘算法[被指责](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G)
+这种潜意识的歧视甚至已经出现在了计算机算法中。例如亚马逊公司的招聘算法[被指责不喜欢女性](https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G)
 
 > Amazon.com Inc's machine-learning specialists uncovered a big problem: their new recruiting engine did not like women.
 >
