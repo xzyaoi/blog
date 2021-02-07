@@ -8,6 +8,7 @@ catalog: true
 tags:
   - Others
   - 较长
+  - 人类观察手册
 ---
 
 # 平权运动
